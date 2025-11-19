@@ -1,21 +1,26 @@
 package com.digitalers.limpiezaIT.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
+@Entity(name = "producto")
 public class Producto {
 
-    Long id;
-    String nombre;
-    Double precio;
-    String descripcion;
-    String urlImagen;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+    private String nombre;
+    private Double precio;
+    private String descripcion;
+    private String urlImagen;
 
 }
